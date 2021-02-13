@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link
+      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <title>Homepage</title>
+  </head>
+  <body>
+    <header class="1-header">
+      <nav class="nav bd-grid">
+        <div class="nav__toggle" id="nav-toggle">
+          <i class="bx bx-menu"></i>
+        </div>
+        <div class="nav__menu" id="nav-menu">
+          <div class="nav__close" id="nav-close">
+            <i class="bx bx-x"></i>
+          </div>
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="#home" class="nav__link active">Home</a>
+            </li>
+            <li class="nav__item">
+              <a href="#about" class="nav__link">About</a>
+            </li>
+            <li class="nav__item">
+              <a href="#skills" class="nav__link">Skills</a>
+            </li>
+            <li class="nav__item">
+              <a href="#services" class="nav__link">services</a>
+            </li>
+            <li class="nav__item">
+              <a href="#contact" class="nav__link">Contact me</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main class="" style="padding: 1%">
+      <section class="home" id="home">
+        <div class="home__container bd-grid">
+          <div class="home__data">
+            <!-- <div class="home__img img"> -->
+              <img style = "margin-bottom: 1rem;width: 12rem;height: 19rem;max-width: 12rem;"src="{% static 'img/profile.jpg' %}" alt="" />
+            <!-- </div> -->
+            <h1 class="home__title">BHOOMIKA K B</h1>
+            <span class="home__profession">Software Engineer</span>
+
+            <div class="home__social">
+              <a href="https://www.linkedin.com/in/bhoomika-k-b-61630a186/" class="home__social-link"
+                ><i class="bx bxl-linkedin"></i
+              ></a>
+              <a href="https://github.com/Bhoomika-KB" class="home__social-link"
+                ><i class="bx bxl-github"></i
+              ></a>
+              
+            </div>
+            <a  href="{% static 'resume/resume.pdf' %}" class="button home__button"
+              >Download Resume</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!--=====ABOUT ====-->
+      <section class="about section about_center" id="about">
+        <h2 class="section-title">OBJECTIVE</h2>
+
+          <div class="about__data">
+            <p class="about__description">
+              I am keen to contribute to the success and growth of the organization by
+undertaking challenging assignments and delivering timely results by
+applying the best of my knowledge and skills.
+            </p>
+          </div>
+      </section>
+
+      <section class="skills section" id="skills">
+        <span class="section-subtitle">Why Choose Me</span>
+        <h2 class="section-title">My expertise Area</h2>
+
+        <div class="skills__container bd-grid">
+          <div class="skills__content">
+            <div class="skills__data">
+              <span class="skills__name">Html/css</span>
+              <span class="skills__number">80%</span>
+              <span class="skills__bar skills__html"></span>
+            </div>
+
+            <div class="skills__data">
+              <span class="skills__name">JavaScript</span>
+              <span class="skills__number">70%</span>
+              <span class="skills__bar skills__js"></span>
+            </div>
+
+            <div class="skills__data">
+              <span class="skills__name">Python</span>
+              <span class="skills__number">90%</span>
+              <span class="skills__bar skills__react"></span>
+            </div>
+
+            <div class="skills__data">
+              <span class="skills__name">Bootstrap</span>
+              <span class="skills__number">80%</span>
+              <span class="skills__bar skills__angular"></span>
+            </div>
+          </div>
+
+          <div class="skills__content">
+            <div class="skills__data">
+              <span class="skills__name">Django</span>
+              <span class="skills__number">85%</span>
+              <span class="skills__bar skills__php"></span>
+            </div>
+
+            <div class="skills__data">
+              <span class="skills__name">Django-Rest-Framework</span>
+              <span class="skills__number">70%</span>
+              <span class="skills__bar skills__nodejs"></span>
+            </div>
+
+            <div class="skills__data">
+              <span class="skills__name">MySQL</span>
+              <span class="skills__number">80%</span>
+              <span class="skills__bar skills__firebase"></span>
+            </div>
+
+            <div class="skills__data">
+              <span class="skills__name">Machine Learning / Deep Learning</span>
+              <span class="skills__number">70%</span>
+              <span class="skills__bar skills__python"></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!---===EDUCATION===-->
+      <section class="education section">
+        <span class="section-subtitle">Qualification</span>
+        <h2 class="section-title">My Education</h2>
+
+        <div class="education__container bd-grid">
+          
+
+
+          <div class="education__content">
+
+            <div>
+              <h3 class="education__year">2015-2019</h3>
+              <span class="education__university">Rajeev Institute of Technology</span>
+            </div>
+
+            <div class="education__time">
+              <span class="education__rounder"></span>
+              <span class="education__line"></span>
+            </div>
+
+            <div>
+              <h3 class="education__race">Bachelor of Engineering</h3>
+              <span class="education__speciality"></span>6.70 | CGPA</span>
+            </div>
+          </div>
+
+          <div class="education__content">
+            <div>
+              <h3 class="education__year">2013-2015</h3>
+              <span class="education__university">St. Philomena’s Girls P U College</span>
+            </div>
+
+            <div class="education__time">
+              <span class="education__rounder"></span>
+              <span class="education__line"></span>
+            </div>
+
+            <div>
+              <h3 class="education__race">Pre-University Course</h3>
+              <span class="education__speciality"></span>81.92 %</span>
+            </div>
+          </div>
+
+          <div class="education__content">
+            <div>
+              <h3 class="education__year">2012-2013</h3>
+              <span class="education__university">St. Philomena’s Girls High School</span>
+            </div>
+
+            <div class="education__time">
+              <span class="education__rounder"></span>
+              <span class="education__line"></span>
+            </div>
+
+            <div>
+              <h3 class="education__race">Secondary School Leaving Certificate </h3>
+              <span class="education__speciality"></span>77.60 %</span>
+            </div>
+          </div>
+
+
+
+        </div>
+      </section>
+
+      <!--===SERVICES===-->
+      <section class="services section" id="services">
+        <h2 class="section-title">My Projects</h2>
+
+        <div class="services__container bd-grid">
+          <div class="services__content">
+            <i class="bx bx-code services__icon"></i>
+            <h3 class="services__title">Ecommerce website</h3>
+            <p class="services__description">
+              This is an ecommerce where a person can order the product and the admin can watch the new orders and can give updates on the delivery of the product to customer. The customer can also has track option.
+            </p>
+            <br>
+            <br>
+            <br>
+            <a href="/shop"><button class="button home__button" >Click Here</button></a>
+          </div>
+
+          <div class="services__content">
+            <i class="bx bx-code services__icon"></i>
+            <h3 class="services__title">Car Price Prediction using ML-REST-API</h3>
+            <p class="services__description">
+              This is a Machine Learning Api created using Sklearn and Django-Rest-Framework where the users are able to send the post request to the api link with the input json data and model present will be able to predict the car price for which the car can be sold.  
+            </p>
+            <br>
+            
+            <a href="/api/predict"><button class="button home__button" >Click Here</button></a>
+         
+          </div>
+
+          <div class="services__content">
+            <i class="bx bx-code services__icon"></i>
+            <h3 class="services__title">LIVE COVID-19 TRACKER</h3>
+            <p class="services__description">
+              This is a Live-Dashboard created using request library in python. This tracker is live and will be updated according to the live conditions in the world.
+            </p>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <a href="/covid"><button class="button home__button" >Click Here</button></a>
+         
+          </div>
+        </div>
+      </section>
+
+      <section class="project section">
+        <div class="project__container bd-grid">
+          <div class="project__data">
+            <h2 class="section-title project__title">
+              Do You have a job for me?
+            </h2>
+            <p class="project__description">
+              If you have a project that you want to carry out,do not hesitate
+              and tell me what it is,and what services I can offer you. Contact
+              me directly here.
+            </p>
+            <a href="#contact" class="button button__light">Contact Me</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact section" id="contact">
+        <span class="section-subtitle">Contact Me</span>
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact__container bd-grid">
+          <form class="contact__form" action="">
+            <div class="contact__inputs">
+              <input type="text" placeholder="Name" class="contact__input" />
+              <input type="mail" placeholder="Email" class="contact__input" />
+            </div>
+
+            <input type="text" placeholder="Project" class="contact__input" />
+
+            <textarea
+              name=""
+              id=""
+              rows="10"
+              cols="0"
+              placeholder="Message"
+              class="contact__input"
+            ></textarea>
+
+            <input
+              type="submit"
+              name=""
+              value="Send Message"
+              class="button contact__button"
+            />
+          </form>
+          <div>
+            <div class="contact__info">
+              <h3 class="contact__subtitle">Call Me</h3>
+              <span class="contact__text">7348971085</span>
+            </div>
+
+            <div class="contact__info">
+              <h3 class="contact__subtitle">E-mail</h3>
+              <span class="contact__text">bhoomika0555@gmail.com</span>
+            </div>
+
+            <div class="contact__info">
+              <h3 class="contact__subtitle">Location</h3>
+              <span class="contact__text">Bangalore</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="{% static 'js/main.js' %}"></script>
+  </body>
+</html>

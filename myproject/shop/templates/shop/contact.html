@@ -1,0 +1,81 @@
+{% extends "shop/base.html" %}
+
+{%block content%}
+<main role="main">
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="display-3">Contact Us!</h1>
+      <p>Always feel free to contact......</p>
+    </div>
+  </div>
+</main>
+
+<div class="container">
+  <form action="/shop/contact/" method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="tel" class="form-control" id="name" name="name" placeholder="Enter Your Name...">
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email...">
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Phone Number</label>
+      <input type="phone" class="form-control" id="phone" name="phone" placeholder="Enter Your Phone number...">
+    </div>
+
+
+    <div class="form-group">
+      <label for="desc">Enter your query to me</label>
+      <textarea class="form-control" id="desc" name="desc" rows="5"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  <br>
+  <br>
+</div>
+
+
+
+
+
+
+
+
+{%endblock%}
+
+{%block js%}
+<script>
+  console.log('working');
+  if (localStorage.getItem('cart') == null) {
+    var cart = {};
+  }
+  else {
+    cart = JSON.parse(localStorage.getItem('cart'));
+    document.getElementById('cart').innerHTML = Object.keys(cart).length;
+  }
+
+  $('.cart').click(function () {
+    console.log('clicked');
+    var idstr = this.id.toString();
+    console.log(idstr);
+    if (cart[idstr] != undefined) {
+      cart[idstr] = cart[idstr] + 1;
+    }
+    else {
+      cart[idstr] = 1;
+    }
+    console.log(cart);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    document.getElementById('cart').innerHTML = Object.keys(cart).length;
+  });
+
+  $('#popcart').popover('show')
+  document.getElementById('popcart').setAttribute('data-content', '<h5>Cart Items</h5>')
+</script>
+{% endblock %}

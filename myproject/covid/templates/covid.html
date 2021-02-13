@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
+
+    <title>Live Covid-19 Tracker</title>
+    <style>
+      .table-responsive {
+        max-height: 300px;
+      }
+
+      .content_heading{
+        font-size: 2rem;
+        color: white;
+        font-family: math;
+        font-weight: 900;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <h1
+        style="
+          font-family: fantasy;
+          font-size: xxx-large;
+          text-align: center;
+          margin-top: 2rem;
+        "
+      >
+        COVID-19 TRACKER
+      </h1>
+    </div>
+    <br />
+    <br />
+
+    <div class="container">
+      <div class="table-responsive">
+        <table class="table table-hover table-dark">
+          <thead class="table-head">
+            <tr>
+              <th scope="col">Province</th>
+              <th scope="col">Country</th>
+              <th scope="col">Confirmed</th>
+              <th scope="col">Deaths</th>
+              <th scope="col">Recovered</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {% for row in main_dict_list %}
+            <tr>
+              <td>{{row.province}}</td>
+              <td>{{row.country}}</td>
+              <td>{{row.confirmed}}</td>
+              <td>{{row.deaths}}</td>
+              <td>{{row.recovered}}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row my-4">
+        <div class="col-sm mx-2" style="height: 150px; background-color: #011935">
+          <div>
+            <h3 class="content_heading">Total Confirmed</h3>
+            <br />
+            <h5 class="content_heading">{{total_confirmed}}</h5>
+          </div>
+        </div>
+
+        <div class="col-sm mx-2" style="height: 150px; background-color: #011935">
+          <div>
+            <h3 class="content_heading">Total Deaths</h3>
+            <br />
+            <h5 class="content_heading">{{total_deaths}}</h5>
+          </div>
+        </div>
+
+        <div class="col-sm mx-2" style="height: 150px; background-color: #011935">
+          <div>
+            <h3 class="content_heading">Total Recovered</h3>
+            <br />
+            <h5 class="content_heading">{{total_recovered}}</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="container">
+      <div class="row my-4">
+
+
+        <div class="table-responsive col-sm mx-2">
+          <table class="table table-hover table-dark">
+            <thead class="table-head">
+              <tr>
+                <th scope="col" class="content_heading">Country</th>
+                <th scope="col"> </th>
+              </tr>
+            </thead>
+  
+            <tbody>
+              {% for country in unique_country_list %}
+              <tr>
+                <td>{{country}}</td>
+                <td>
+                  <form action="/covid/" method="post">
+                    {% csrf_token %}
+                    <button  class="btn btn-primary" type="submit" name="submit" value={{country}}>VIEW</button>
+                    
+                  </form>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+
+        <div class="col-sm mx-2" style="height: 300px; background-color:#011935">
+          <div>
+            <h3 class="content_heading">{{country_stats.0}}</h3>
+            <br />
+            <div class="row my-1">
+
+              <div class="col-sm mx-2">
+                <h5 class="content_heading"> Confirmed</h5>
+                <h5 class="content_heading">{{country_stats.1}}</h5>
+              </div>
+
+              <div class="col-sm mx-2">
+                <h5 class="content_heading"> Deaths</h5>
+                <h5 class="content_heading">{{country_stats.2}}</h5>
+              </div>
+
+              <div class="col-sm mx-2">
+                <h5 class="content_heading"> Recovered</h5>
+                <h5 class="content_heading">{{country_stats.3}}</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+    -->
+    <script>
+      $(".dropdown-toggle").dropdown();
+    </script>
+  </body>
+</html>
