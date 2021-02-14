@@ -11,6 +11,7 @@ import json
 
 
 
+# model = pickle.load(open('/home/bhoomikakb/portfolio/myproject/mlapp/random_forest_regression_model.pkl', 'rb'))
 
 model = pickle.load(open('mlapp/random_forest_regression_model.pkl', 'rb'))
 
