@@ -5,6 +5,8 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 import pickle
 import numpy as np
+from django.shortcuts import render
+
 
 
 
@@ -98,3 +100,5 @@ class CarPrediction(APIView):
             return Response({"predicted_price":"The car can be sold for {} lakhs approximately.".format(output)})
         
         
+def predict(request):
+    return render(request, 'predict.html')

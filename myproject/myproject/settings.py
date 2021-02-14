@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'portfolio.apps.PortfolioConfig',
     'shop.apps.ShopConfig',
     'rest_framework',
-    'covid'
+    'covid',
+    'mlapp'
 ]
 
 MIDDLEWARE = [
