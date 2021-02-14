@@ -6,6 +6,8 @@ from rest_framework.response import Response
 import pickle
 import numpy as np
 from django.shortcuts import render
+import requests
+import json
 
 
 
@@ -59,11 +61,11 @@ class CarPrediction(APIView):
     
     def post(self, request, format=None):
         
-        Year = request.data['Year']
-        Present_Price = request.data['Present_Price']
-        Kms_Driven = request.data['Kms_Driven']
+        Year = int(request.data['Year'])
+        Present_Price = float(request.data['Present_Price'])
+        Kms_Driven = float(request.data['Kms_Driven'])
         Kms_Driven2=np.log(Kms_Driven)
-        Owner = request.data['Owner']
+        Owner = int(request.data['Owner'])
         Fuel_Type_Petrol = request.data['Fuel_Type_Petrol']
         Seller_Type_Individual = request.data['Seller_Type_Individual']
         Transmission_Manual = request.data['Transmission_Manual']
@@ -86,6 +88,7 @@ class CarPrediction(APIView):
         else:
             Seller_Type_Individual=0
             
+            
         if(Transmission_Manual=='Manual'): #Automatic
             Transmission_Manual=1
         else:
@@ -101,4 +104,29 @@ class CarPrediction(APIView):
         
         
 def predict(request):
-    return render(request, 'predict.html')
+    
+    price = 'Enter the value to find the price'
+    
+    if request.method=="POST":
+        Year = request.POST["Year"]
+        Present_Price = request.POST['Present_Price']
+        Kms_Driven = request.POST['Kms_Driven']
+        Owner = request.POST['Owner']
+        Fuel_Type_Petrol = request.POST['Fuel_Type_Petrol']
+        Seller_Type_Individual = request.POST['Seller_Type_Individual']
+        Transmission_Manual = request.POST['Transmission_Mannual']
+        
+
+        url = 'bhoomikakb.pythonanywhere.com/api/predict/'
+        myobj = {'Year': int(Year),
+                 'Present_Price':float(Present_Price),
+                 'Kms_Driven': float(Kms_Driven),
+                 'Owner':int(Owner),
+                 'Fuel_Type_Petrol':Fuel_Type_Petrol,
+                 'Seller_Type_Individual':Seller_Type_Individual,
+                 'Transmission_Manual':Transmission_Manual}
+
+        x = requests.post(url, data = myobj)
+        price=list(x.json().values())[0]
+    
+    return render(request, 'predict.html', {'price':price} )
