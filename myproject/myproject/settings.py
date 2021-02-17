@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 SECRET_KEY = 'z75r#b)2gz$qco6ptu^62^8@1%1@4=g#etmmdx7e$$vf5_c*(x'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['bhoomikakb.pythonanywhere.com']
+ALLOWED_HOSTS = ['bhoomikakb.pythonanywhere.com','127.0.0.1']
 
 
 # Application definition

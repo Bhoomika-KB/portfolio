@@ -34,7 +34,7 @@
               <a href="#skills" class="nav__link">Skills</a>
             </li>
             <li class="nav__item">
-              <a href="#services" class="nav__link">services</a>
+              <a href="#services" class="nav__link">Projects</a>
             </li>
             <li class="nav__item">
               <a href="#contact" class="nav__link">Contact me</a>
@@ -62,7 +62,7 @@
               ></a>
               
             </div>
-            <a  href="{% static 'resume/resume_portfolio.pdf' %}" class="button home__button"
+            <a  href="{% static 'resume/Bhoomika_KB_resume.pdf' %}" class="button home__button"
               >Download Resume</a
             >
           </div>
@@ -232,7 +232,7 @@ applying the best of my knowledge and skills.
             </p>
             <br>
             
-            <a href="/api/predict"><button class="button home__button" >Click Here</button></a>
+            <a href="/api/predict_ui"><button class="button home__button" >Click Here</button></a>
          
           </div>
 
@@ -273,21 +273,23 @@ applying the best of my knowledge and skills.
         <span class="section-subtitle">Contact Me</span>
         <h2 class="section-title">Get In Touch</h2>
         <div class="contact__container bd-grid">
-          <form class="contact__form" action="">
+          <form class="contact__form" action="/" method="POST">
+            {% csrf_token %}
             <div class="contact__inputs">
-              <input type="text" placeholder="Name" class="contact__input" />
-              <input type="mail" placeholder="Email" class="contact__input" />
+              <input type="text" placeholder="Name" name="name" class="contact__input" />
+              <input type="mail" placeholder="Email" name="email" class="contact__input" />
             </div>
 
-            <input type="text" placeholder="Project" class="contact__input" />
+            <input type="phone" placeholder="Phone Number" name="phone" class="contact__input" />
 
             <textarea
               name=""
               id=""
               rows="10"
               cols="0"
-              placeholder="Message"
+              placeholder="MESSAGE"
               class="contact__input"
+              name="desc"
             ></textarea>
 
             <input

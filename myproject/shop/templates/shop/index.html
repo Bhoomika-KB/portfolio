@@ -49,18 +49,22 @@ padding-right: 0;
 {% load static %}
 <div class="container">
     <!--Slideshow starts here -->
+    <br><br><br><br><br>
+    <h1 style="text-align:center; color:#011935; font-weight: 900;">WELCOME TO E-CART. </h1>
+    <h1 style="text-align:center; color:#091e91">ADD TO CART AND JUST CHECKOUT! </h1>
+    <br><br>
     {% for product, range, nSlides in allProds %}
     <h5 class="my-4">Flash Sale On {{product.0.category}} - Recommended Items</h5>
     <div class="row">
-        <div id="demo{{forloop.counter}}" class="col carousel slide my-3" data-ride="carousel">
+        <div id="demo{{forloop.counter}}" class="col-12 carousel slide my-3" data-ride="carousel">
             <ul class="carousel-indicators">
                 <li data-target="#demo{{forloop.counter}}" data-slide-to="0" class="active"></li>
                 {% for i in range %}
                 <li data-target="#demo{{forloop.parentloop.counter}}" data-slide-to="{{i}}"></li>
                 {% endfor %}
             </ul>
-            <div class="container carousel-inner no-padding">
-                <div class="carousel-item active">
+            <div class="container carousel-inner no-padding col-12 col-xs-12, col-sm-12 col-md-12">
+                <div class="carousel-item active col-12 col-xs-12, col-sm-12 col-md-12">
                     {% for i in product %}
                     <div class="col-xs-3 col-sm-3 col-md-3">
                         <div class="card align-items-center" style="width: 16rem;">
@@ -70,9 +74,9 @@ padding-right: 0;
                                 <p class="card-text">{{i.desc|slice:"0:25"}} ...</p>
                                 <h6 class="card-title" >Price : <span id="pricepr{{i.id}}">{{i.price}}</span></h6>
                                 <span id="divpr{{i.id}}" class="divpr">
-                                    <button id="pr{{i.id}}" class="btn btn-primary cart">Add To Cart</button>
+                                    <button id="pr{{i.id}}" class="btn btn-primary cart" style="background-color:#091e91 !important;">Add To Cart</button>
                                 </span>
-                                <a href="/shop/products/{{i.id}}"><button id="qv{{i.id}}" class="btn btn-primary cart">QuickView</button></a>
+                                <a href="/shop/products/{{i.id}}"><button id="qv{{i.id}}" class="btn btn-primary cart" style="background-color:#091e91 !important;">QuickView</button></a>
                             </div>
                         </div>
                     </div>
@@ -84,10 +88,6 @@ padding-right: 0;
                 </div>
             </div>
         </div>
-
-
-
-
 
         <!-- left and right controls for the slide -->
         <a class="carousel-control-prev" href="#demo{{forloop.counter}}" data-slide="prev">
@@ -142,7 +142,7 @@ function updatePopover(cart) {
         popStr = popStr + document.getElementById('name' + item).innerHTML.slice(0, 19) + "... Qty: " + cart[item][0] + '<br>';
         i = i + 1;
     }
-    popStr = popStr + "</div> <a href='/shop/checkout'><button class='btn btn-primary' id ='checkout'>Checkout</button></a> <button class='btn btn-primary' onclick='clearCart()' id ='clearCart'>Clear Cart</button>     "
+    popStr = popStr + "</div> <a href='/shop/checkout'><button style='background-color:#091e91 !important;' class='btn btn-primary' id ='checkout'>Checkout</button></a> <button style='background-color:#091e91 !important;' class='btn btn-primary' onclick='clearCart()' id ='clearCart'>Clear Cart</button>     "
     console.log(popStr);
     document.getElementById('popcart').setAttribute('data-content', popStr);
     $('#popcart').popover('show');
@@ -162,7 +162,7 @@ function updateCart(cart) {
     var sum = 0;
     for (var item in cart) {
         sum = sum + cart[item][0];
-        document.getElementById('div' + item).innerHTML = "<button id='minus" + item + "' class='btn btn-primary minus'>-</button> <span id='val" + item + "''>" + cart[item][0] + "</span> <button id='plus" + item + "' class='btn btn-primary plus'> + </button>";
+        document.getElementById('div' + item).innerHTML = "<button style='background-color:#091e91 !important;'  id='minus" + item + "' class='btn btn-primary minus' >-</button> <span id='val" + item + "''>" + cart[item][0] + "</span> <button style='background-color:#091e91 !important;' id='plus" + item + "' class='btn btn-primary plus'> + </button>";
     }
     localStorage.setItem('cart', JSON.stringify(cart));
     document.getElementById('cart').innerHTML = sum;

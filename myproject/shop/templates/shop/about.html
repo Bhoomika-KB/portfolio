@@ -3,17 +3,11 @@
   <!-- Main jumbotron for a primary marketing message or call to action -->
   <div class="jumbotron">
     <div class="container">
-      <h1 class="display-3">About Us!</h1>
+      <h1 class="display-3" style="font-weight:900;">About Us!</h1>
       <p>
-        This is a template for a simple marketing or informational website. It
-        includes a large callout called a jumbotron and three supporting pieces
-        of content. Use it as a starting point to create something more unique.
+        For a high-tech, sustainable water bottle manufacturer, E-Cart has crafted an About Us page with plenty of personal flair. Right away, the team photo helps us put (smiling!) faces to the brand, and it’s followed by a symmetrical arrangement of text and images that makes reading or scanning this page an easy feat. 
       </p>
-      <p>
-        <a class="btn btn-primary btn-lg" href="#" role="button"
-          >Learn more »</a
-        >
-      </p>
+      
     </div>
   </div>
 
@@ -21,36 +15,27 @@
     <!-- Example row of columns -->
     <div class="row">
       <div class="col-md-4">
-        <h2>Heading</h2>
+        <h2>Achievement-1</h2>
         <p>
-          Donec id elit non mi porta gravida at eget metus. Fusce dapibus,
-          tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum
-          massa justo sit amet risus. Etiam porta sem malesuada magna mollis
-          euismod. Donec sed odio dui.
+          Our company E-cart is the winner for creating an uncluttered, un-fluffy About Us page that commands customers’ attention. Clean formatting and succinct writing work together to give this page its unique power.
         </p>
         <p>
           <a class="btn btn-secondary" href="#" role="button">View details »</a>
         </p>
       </div>
       <div class="col-md-4">
-        <h2>Heading</h2>
+        <h2>Achievement-2</h2>
         <p>
-          Donec id elit non mi porta gravida at eget metus. Fusce dapibus,
-          tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum
-          massa justo sit amet risus. Etiam porta sem malesuada magna mollis
-          euismod. Donec sed odio dui.
+          Our company E-cart is the winner for creating an uncluttered, un-fluffy About Us page that commands customers’ attention. Clean formatting and succinct writing work together to give this page its unique power.
         </p>
         <p>
           <a class="btn btn-secondary" href="#" role="button">View details »</a>
         </p>
       </div>
       <div class="col-md-4">
-        <h2>Heading</h2>
+        <h2>Achievement-3</h2>
         <p>
-          Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas
-          eget quam. Vestibulum id ligula porta felis euismod semper. Fusce
-          dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut
-          fermentum massa justo sit amet risus.
+          Our company E-cart is the winner for creating an uncluttered, un-fluffy About Us page that commands customers’ attention. Clean formatting and succinct writing work together to give this page its unique power.
         </p>
         <p>
           <a class="btn btn-secondary" href="#" role="button">View details »</a>
@@ -63,33 +48,47 @@
   <!-- /container -->
 </main>
 {%endblock%} {%block js%}
-<script>
-  console.log("working");
-  if (localStorage.getItem("cart") == null) {
-    var cart = {};
-  } else {
-    cart = JSON.parse(localStorage.getItem("cart"));
-    document.getElementById("cart").innerHTML = Object.keys(cart).length;
-  }
 
-  $(".cart").click(function () {
-    console.log("clicked");
-    var idstr = this.id.toString();
-    console.log(idstr);
-    if (cart[idstr] != undefined) {
-      cart[idstr] = cart[idstr] + 1;
+   <script>
+    if (localStorage.getItem('cart') == null) {
+        var cart = {};
     } else {
-      cart[idstr] = 1;
+        cart = JSON.parse(localStorage.getItem('cart'));
     }
     console.log(cart);
-    localStorage.setItem("cart", JSON.stringify(cart));
-    document.getElementById("cart").innerHTML = Object.keys(cart).length;
-  });
+    var sum = 0;
+    var totalPrice = 0;
 
-  $("#popcart").popover("show");
-  document
-    .getElementById("popcart")
-    .setAttribute("data-content", "<h5>Cart Items</h5>");
+    
+
+    if ($.isEmptyObject(cart)) {
+        //if object is empty
+        mystr = `<p>Your cart is empty, please add some items to your cart before checking out!</p>`
+        $('#items').append(mystr);
+    } else {
+        for (item in cart) {
+            let name = cart[item][1];
+            let qty = cart[item][0];
+            let itemPrice = cart[item][2];
+            sum = sum + qty;
+            totalPrice = totalPrice + qty * itemPrice
+            mystr = `<li class="list-group-item d-flex justify-content-between align-items-center">
+                ${name}
+                <span class="badge badge-primary badge-pill">${qty}</span>
+            </li>`
+            $('#items').append(mystr);
+        }
+    }
+    document.getElementById('cart').innerHTML = sum;
+    document.getElementById('totalPrice').innerHTML = totalPrice;
+
+    $('#itemsJson').val(JSON.stringify(cart));
+    {% if thank %}
+    alert("Thanks for ordering with us. Your order id is {{id}}. Use it to track your order using our order tracker")
+    localStorage.clear();
+    document.location = "/shop";
+    {% endif %}
+
+    $('#amount').val($('#totalPrice').html());
 </script>
-
 {% endblock %}
