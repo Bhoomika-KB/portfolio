@@ -1,0 +1,67 @@
+{% extends 'studentapp/base.html' %} 
+{% block body %}
+<div class="container ">
+    <div class="col-6 " style="margin: auto;" >
+
+    <h1 class="my-4 " style="text-align:center;">
+        STUDENT REGISTRATION  
+        
+        <div class="d-grid gap-2">
+            <button class="btn btn-dark" type="button">{{class_name}}</button>
+        </div>
+    </h1>
+    <p class="my-4 " style="text-align:center;">Passwords are present at About Project link</p>
+    
+            
+         
+    <form class="row g-3" method="POST" action="">
+      {% csrf_token %}
+
+      {% if error %}
+        <div class="col-md-12">
+          <p style="font-family: monospace;color: white;border: 1px solid red;margin: auto;padding: 0.5rem;background: #d21b1b;font-weight: bolder;">
+            {{error}}
+          </p>
+        </div>
+      {% endif %}
+
+      {% if message %}
+        <div class="col-md-12">
+          <p style="font-family: monospace;color: white;border: 1px solid rgb(4, 73, 7);margin: auto;padding: 0.5rem;background: #16ac08;font-weight: bolder;">
+            {{message}}
+          </p>
+        </div>
+      {% endif %}
+      
+
+        <div class="col-md-12 my-2">
+
+            <label for="inputName" class="form-label">Student Name</label>
+            <input type="text" name="name" class="form-control" id="inputName">
+          </div>
+
+        <div class="col-md-12">
+          <label for="inputEmail" class="form-label">Email</label>
+          <input type="email" name="email" class="form-control" id="inputEmail">
+        </div>
+
+        
+
+        <div class="col-md-12">
+          <label for="inputPassword1" class="form-label">Password</label>
+          <input type="password" name="password1" class="form-control" id="inputPassword1">
+        </div>
+
+        <div class="col-md-12">
+            <label for="inputPassword2" class="form-label">Confirm Password</label>
+            <input type="password" name="password2" class="form-control" id="inputPassword2">
+          </div>
+        
+       
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary my-2">Register</button>
+        </div>
+      </form>
+</div>
+</div>
+{% endblock %}

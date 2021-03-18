@@ -24,5 +24,7 @@ urlpatterns = [
     path('shop/',include('shop.urls')),
     path('api/',include('mlapp.urls')),
     path('covid/',include('covid.urls')),
+    path('student_enrollment/',include('studentapp.urls')),
+    
 
 ]+ static(settings.MEDIA_URL,document_root = settings.MEDIA_ROOT)

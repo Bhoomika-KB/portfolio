@@ -1,0 +1,39 @@
+{% extends 'studentapp/base.html' %} 
+{% block body %}
+<div class="container">
+    <h1 class="my-3">
+        USER DETAILS
+    </h1>
+
+    <br><br>
+    
+
+    {% if user_obj.role == 'student' %}
+        <div class="container">
+
+            <h5>USER NAME : {{user_obj.student_name}}</h5>
+            <h5>USER ROLE : {{user_obj.role}}</h5>
+            <h5>USER EMAIL : {{user_obj.email}}</h5>
+
+            <h1 class="my-4">
+                ENROLLED CLASS ROOMS
+            </h1>
+            {% for classroom in user_obj.classroom.all %}
+            <p style="border: 2px solid black;
+            background: black;
+            color: white;
+            padding: 15px;
+            display: inline-block;">{{classroom.class_name}}</p>
+            {% endfor %}
+        </div>
+    {% else %}
+    <div class="container">
+        <h5>USER NAME : {{user_obj.teacher_name}}</h5>
+        <h5>USER ROLE : {{user_obj.role}}</h5>
+        <h5>USER EMAIL : {{user_obj.email}}</h5>
+    </div>
+        
+    {% endif %}
+
+</div>
+{% endblock %}

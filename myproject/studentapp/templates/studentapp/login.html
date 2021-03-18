@@ -1,0 +1,42 @@
+{% extends 'studentapp/base.html' %} 
+{% block body %}
+<div class="container ">
+    <div class="col-6 " style="margin: auto;" >
+
+    <h1 class="my-4 " style="text-align:center;">LOGIN FORM</h1>
+    <p class="my-4 " style="text-align:center;">Passwords are present at About Project link</p>
+    <form method="POST" action="">
+      {% csrf_token %}
+
+      {% if error %}
+        <div class="mb-3">
+          <p style="font-family: monospace;color: white;border: 1px solid red;margin: auto;padding: 0.5rem;background: #d21b1b;font-weight: bolder;">
+            {{error}}
+          </p>
+        </div>
+      {% endif %}
+
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Email address</label>
+          <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+        </div>
+
+        <div class="mb-3">
+            <select class="form-select" name = "option" aria-label="Default select example">
+                <option value="student" name="student" >STUDENT</option>
+                <option value="teacher" name="teacher" >TEACHER</option>
+            </select>
+        </div>
+
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+</div>
+</div>
+
+{% endblock %}

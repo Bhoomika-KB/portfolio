@@ -1,0 +1,54 @@
+{% extends 'studentapp/base.html' %} {% block body %}
+
+<div class="container">
+  <h1 class="my-3">ALL CLASS-ROOMS</h1>
+
+  {% if user_obj.role  == 'teacher' %}
+  
+  <form action="" method="POST">
+    {% csrf_token %}
+    <div class="container">
+      <div class="row">
+        
+        <div class="col-3">
+          <input type="text" name='class' class="form-control" placeholder="Class Name" aria-label="Class Name">
+        </div>
+        <div class="col-1.2 ">
+          <button type="submit" class="btn btn-secondary ">ADD CLASS</button>
+        </div>
+      </div>
+    </div>
+  </form>
+  
+  {% endif %}
+
+  {% if message %}
+      <div class="col-md-3 my-2">
+        <p style="font-family: monospace;color: white;border: 1px solid red;margin: auto;padding: 0.5rem;background: #d21b1b;font-weight: bolder;">
+          {{message}}
+        </p>
+      </div>
+  {% endif %}
+
+  <div class="row">
+    {% for class in all_classes %}
+
+    <div class="col-sm-6 my-2">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{class.class_name}}</h5>
+          {% if user_obj.role  == 'teacher' %}
+          {% else %}
+          <a href="{% url 'register' class_name=class.class_name %}" class="btn btn-primary">Register</a>
+          {% endif %}
+          <a href="{% url 'single_class' id=class.id %}" class="btn btn-primary">View Class-room</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+
+    
+  </div>
+</div>
+
+{% endblock body %}

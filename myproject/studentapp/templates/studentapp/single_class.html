@@ -1,0 +1,38 @@
+{% extends 'studentapp/base.html' %} {% block body %}
+
+<div class="container">
+  <h1 class="my-3" >{{single_class.class_name}}</h1>
+  {% if user_obj.role  == 'teacher' %}
+  {% else %}
+  <a href="{% url 'register' class_name=single_class.class_name %}" class="btn btn-primary">Register</a>
+  {% endif %}
+
+  <br> <br>
+  <h5>Teachers assigned for this Class-Room</h5>
+
+  <table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">Teacher Id</th>
+        <th scope="col">Teacher Name</th>
+        <th scope="col">Subject</th>
+
+        
+      </tr>
+    </thead>
+    <tbody>
+    {% for teacher in teachers %}
+      <tr>
+        <th scope="row">{{teacher.id}}</th>
+        <td>{{teacher.teacher_name}}</td>
+        <td>{{teacher.subject}}</td>
+       
+      </tr>
+    {%endfor%}
+      
+    </tbody>
+  </table>
+  
+</div>
+
+{% endblock body %}

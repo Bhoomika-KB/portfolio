@@ -1,0 +1,71 @@
+{% extends 'studentapp/base.html' %} 
+{% block body %}
+
+
+
+
+<div class="container">
+
+    <div style="text-align: center;" class="my-4">
+        <h1 style=" font-weight: bolder;font-family: -webkit-body;display: inline-block;" class="my-4">ABOUT PROJECT</h1>
+    </div>
+
+    
+    
+    <div class="list-group my-4">
+        <a href="#" class="list-group-item list-group-item-action active">
+          <b>As ananymous student </b>
+          
+        </a>
+        <a href="#" class="list-group-item list-group-item-action"><b>Example :</b> USERNAME: unknown, PASSWORD: unknown </a>
+        <a href="#" class="list-group-item list-group-item-action">Will be able to see classes</a>
+        <a href="#" class="list-group-item list-group-item-action">Will be able to register and welcome email will be sent</a>
+        <a href="#" class="list-group-item list-group-item-action">Will be able view classes</a>
+        <a href="#" class="list-group-item list-group-item-action disabled">After logging in He will be able to see his enrolled classes on his profile.</a>
+        <a href="#" class="list-group-item list-group-item-action disabled">He is able to logout </a>
+        <a href="#" class="list-group-item list-group-item-action disabled">Once he has registered to a classroom he will not be able to register again </a>
+      </div>
+
+      <div class="list-group my-4">
+        <a href="#" class="list-group-item list-group-item-action active">
+          <b>As Teacher</b>
+          
+        </a>
+        <a href="#" class="list-group-item list-group-item-action"><b>Example :</b> USERNAME: rekha, PASSWORD: rekha@gmail.com </a>
+        <a href="#" class="list-group-item list-group-item-action">Logging in as a teacher</a>
+        <a href="#" class="list-group-item list-group-item-action">Teacher will not be able to register. Will be added by admin to classroom</a>
+        <a href="#" class="list-group-item list-group-item-action">Will be able view classes</a>
+        <a href="#" class="list-group-item list-group-item-action disabled">Will be ablle to add classes in form by filling class name</a>
+        <a href="#" class="list-group-item list-group-item-action disabled">Will be able to logout</a>
+      </div>
+
+      <div class="list-group my-4">
+        <a href="#" class="list-group-item list-group-item-action active">
+          <b>As already present Student</b> 
+        </a>
+        <a href="#" class="list-group-item list-group-item-action"><b>Example :</b> USERNAME: varna, PASSWORD: varna@gmail.com </a>
+        <a href="#" class="list-group-item list-group-item-action">Will be able to login as student</a>
+        <a href="#" class="list-group-item list-group-item-action">Will be able to register and email will be sent</a>
+        <a href="#" class="list-group-item list-group-item-action">Will be able view classes</a>
+        <a href="#" class="list-group-item list-group-item-action disabled">Registering to classes which are not registered. If registered classrooms are registered again error will be seen</a>
+      </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

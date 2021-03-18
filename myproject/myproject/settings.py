@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'shop.apps.ShopConfig',
     'rest_framework',
     'covid',
-    'mlapp'
+    'mlapp',
+    'studentapp'
 ]
 
 MIDDLEWARE = [
@@ -137,7 +138,20 @@ STATICFILES_DIRS = [
     '/var/www/static/',
 ]
 
-
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'bhoomika0555@gmail.com'
+EMAIL_HOST_PASSWORD = 'manvi1526' 
+EMAIL_SUBJECT='Hi {}, Thank you for registering {}'
+EMAIL_BODY ='''Dear Class Members,
+                    Welcome to our online “{}”! We should have an interesting time this term. I hope you will learn much about technologies for which you have registered. We do not plan for us to personally meet as a class. All of our lectures, discussions, office visits, and final presentations can be done online. But, of course, We will be happy to meet with anyone! Just email me and let me know.
+                
+                    AS PER THE REQUIREMENT, DYNAMIC EMAIL HAS BEEN SENT. PLEASE GIVE ME AN OPPORTUNITY TO WORK IN YOUR COMPANY. 
+                
+                CONTACT ME : 7348971085
+                '''
 
 # Managing media 
 import os
