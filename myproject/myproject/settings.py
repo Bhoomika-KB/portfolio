@@ -143,7 +143,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'bhoomika0555@gmail.com'
-EMAIL_HOST_PASSWORD = 'manvi1526' 
+EMAIL_HOST_PASSWORD = '#password' 
 EMAIL_SUBJECT='Hi {}, Thank you for registering {}'
 EMAIL_BODY ='''Dear Class Members,
                     Welcome to our online “{}”! We should have an interesting time this term. I hope you will learn much about technologies for which you have registered. We do not plan for us to personally meet as a class. All of our lectures, discussions, office visits, and final presentations can be done online. But, of course, We will be happy to meet with anyone! Just email me and let me know.
